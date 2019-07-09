@@ -45,7 +45,6 @@ class App extends Component {
   writeUserData = () => {
     firebase.database().ref('/').set(this.state);
     console.log('DATA SAVED');
-     this.getUserData();
   }
 
   getUserData = () => {
