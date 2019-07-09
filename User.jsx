@@ -101,7 +101,7 @@ export default class App extends Component {
       </div>
       <div className='row'>
         <div className='col-xl-12'>
-          <h1>Add new team member here</h1>
+          <h1>rajouter un collaborateur</h1>
           <form onSubmit={this.handleSubmit}>
             <div className="form-row">
               <input type='hidden' ref='uid' />

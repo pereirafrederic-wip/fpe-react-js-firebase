@@ -38,7 +38,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className='col-xl-12'>
-            <h1>Firebase Development Team</h1>
+            <h1>Equipe : </h1>
           </div>
         </div>
         <User />
