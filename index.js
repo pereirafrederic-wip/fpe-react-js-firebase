@@ -38,13 +38,14 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState !== this.state) {
       this.writeUserData();
-      this.getUserData();
+    
     }
   }
 
   writeUserData = () => {
     firebase.database().ref('/').set(this.state);
     console.log('DATA SAVED');
+     this.getUserData();
   }
 
   getUserData = () => {
