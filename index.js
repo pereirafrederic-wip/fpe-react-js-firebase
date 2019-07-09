@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import User from './User';
+import Connexion from './Connexion'
 import './style.css';
 import "bootstrap/dist/css/bootstrap.css";
 import firebase from 'firebase';
@@ -21,14 +22,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-     
+
     };
-     if (!firebase.apps.length)
+    if (!firebase.apps.length)
       firebase.initializeApp(firebaseConfig);
   }
 
 
- 
+
 
 
   render() {
@@ -41,6 +42,11 @@ class App extends Component {
           </div>
         </div>
         <User />
+        <hr />
+        <hr />
+        <Connexion />
+
+
       </div>
 
     );
