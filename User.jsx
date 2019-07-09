@@ -1,5 +1,5 @@
 
-import React, { Component,Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import firebase from 'firebase';
 
@@ -22,7 +22,7 @@ export default class App extends Component {
     }
   }
 
-  
+
   writeUserData = () => {
     firebase.database().ref('/').set(this.state);
     console.log('DATA SAVED');

@@ -16,17 +16,17 @@ export default class Connexion extends Component {
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
 
+
+    this.signOut = this.signOut.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     firebase.auth().onAuthStateChanged(function (user) {
       console.log('onAuthStateChanged', user)
       if (user) {
-         console.log('set User', user)
-        this.setState({ auth: user })
+        console.log('set User', user)
       } else {
         // No user is signed in.
         console.log('stop User')
-        this.setState({ auth: null })
       }
     });
 
@@ -59,17 +59,20 @@ export default class Connexion extends Component {
 
     const { email, password } = this.state
 
+    const here = this;
+
     return new Promise(
       (resolve, reject) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
           .then(
-            () => {
+            (data) => {
               resolve();
-              console.log('connected')
+              here.setState({ auth: data.user });
+              console.log('connected', data)
             },
             (error) => {
               reject(error);
-              this.setState({ error: error })
+              here.setState({ error: error, auth: null })
               console.log('connect error')
             }
           );
@@ -77,15 +80,15 @@ export default class Connexion extends Component {
     )
   }
 
-  renderToat(message) {
+  renderToat(error) {
 
 
     return (<div className="p-3 my-2 rounded"><Toast>
       <ToastHeader>
-        erreur de connexion
-          </ToastHeader>
+        {`erreur de connexion ${error.code}`}
+      </ToastHeader>
       <ToastBody>
-        {message.message}
+        {error.message}
       </ToastBody>
     </Toast></div>)
   }
@@ -94,6 +97,7 @@ export default class Connexion extends Component {
 
     const { auth, email, password, error } = this.state
 
+    console.log('test', auth);
     if (auth)
       return (<div >
 
