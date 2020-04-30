@@ -6,7 +6,7 @@
     "@firebase/util": "0.2.20",
     "bootstrap": "4.3.1",
     "firebase": "6.2.4",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "popper.js": "1.15.0",
     "react": "16.8.0",
     "react-dom": "16.8.0",
